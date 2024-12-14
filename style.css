@@ -1,0 +1,172 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+  --border-width: 4px;
+}
+body {
+  background-color: #191919;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+.selected {
+  border: bisque solid var(--border-width) !important;
+}
+.sideBar {
+  position: fixed;
+  display: flex;
+  align-items: end;
+  flex-direction: column;
+  top: 10px;
+  right: 10px;
+  gap: 8px;
+  z-index: 1;
+}
+.sideBar > div {
+  --opacity-sideBar: 1;
+  background-color: black;
+  border-radius: 0.5em;
+  color: aliceblue;
+  padding: 0.5em;
+  font-size: 1.3em;
+  position: relative;
+}
+.sideBar > :first-child {
+  background-color: blueviolet;
+}
+.sideBar > div::after {
+  opacity: var(--opacity-sideBar);
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translate(3px, 2.5px);
+  width: 100%;
+  height: 100%;
+  content: "";
+  z-index: -1;
+  background-color: bisque;
+  border-radius: 0.5em;
+  transition: ease-out 0.2s opacity;
+}
+.colorsBar {
+  display: flex;
+  position: fixed;
+  bottom: 1em;
+  gap: 1em;
+}
+.colorsGroup {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+}
+.color {
+  width: 2.5em;
+  height: 2.5em;
+  border-radius: 50%;
+  border: black solid var(--border-width);
+  cursor: pointer;
+  transition: 1s all;
+}
+.color:hover {
+  border-radius: 10%;
+}
+
+.userColor[type="color"] {
+  margin: 0;
+  padding: 0;
+  content: url("https://img.icons8.com/?size=100&id=78728&format=png&color=000000");
+  padding: 2px;
+}
+.userColor[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+  margin: 0;
+  background: none;
+}
+.deleteColor {
+  background-image: url("https://img.icons8.com/?size=38&id=45&format=png&color=000000");
+  background-repeat: no-repeat;
+}
+
+.func {
+  width: 45px;
+  height: 45px;
+  border-radius: 40%;
+}
+
+/* ↓ Canvas style  */
+.mainCanvas {
+  position: absolute;
+  top: 1;
+  bottom: 1;
+  width: 400px;
+  height: 400px;
+  background-color: aliceblue;
+}
+
+.animate{/*Класс для анимации того, что цвет уже есть в палитре*/
+  animation: _highlight 1s ease-in-out forwards;
+}
+
+@keyframes _highlight {
+  0%{
+    border: solid white var(--border-width);
+  }
+  30%{
+    border: solid black var(--border-width)
+  }
+  60%{
+    border: solid white var(--border-width);
+  }
+  100%{
+    border: solid black var(--border-width);
+  }
+}
+
+#canvas {
+  cursor: pointer;
+}
+
+#guide {
+  display: grid;
+  pointer-events: none;
+  position: absolute;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#guide div {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+
+.info{
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  position: fixed;
+  gap: 10px;
+  top: 3em;
+  left: 3em;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 3px solid black;
+  border-radius: 1em;
+  padding: 1em;
+}
+.info>h1{
+  color: azure;
+}
+.info>.content>p{
+  text-indent: 15px;
+  color: blueviolet;
+}
+span#closeBtn{
+  position: absolute;
+  right: 1em;
+  font-size: 2.5em;
+  color: bisque;
+}

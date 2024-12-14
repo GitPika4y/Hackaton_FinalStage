@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Hackaton2</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <div class="info">
+        <h1>Сайт для финального этапа Hackaton 2024</h1>
+        <div class="content">
+            <p>Для пипетки внутри холста зажмите ctrl</p>
+        </div>
+        <span id="closeBtn">˟</span>
+    </div>
+    
+    <div class="sideBar">
+        <div class="logIn">Войти</div>
+        <div class="tegs">Теги</div>
+        <div class="images">Изображение</div>
+        <div class="canvasScreen">Снимок холста</div>
+    </div>
+    
+    <div class="colorsBar">
+        <div class="colorsGroup">
+            <div class="color" style="background-color: red;"></div>
+            <div class="color" style="background-color: green;"></div>
+            <div class="color" style="background-color: blue;"></div>
+            <div class="color" style="background-color: black;"></div>
+            <div class="color" style="background-color: white;"></div>
+        </div>
+        
+        <div class="funcButtons colorsGroup">
+            <input type="color" value="rgba(0 0 0 0.1)" class="userColor color func"/>
+            <button class="deleteColor color func"></button>
+        </div>
+
+        <div class="addedColors colorsGroup"></div>
+    </div>
+    
+    <div class="modalLogin">
+    </div>
+    
+    <div>
+        <div id="guide"></div>
+        <canvas width="450" height="450" id="canvas"></canvas>
+    </div>
+    
+    <script src="js.js"></script>
+</body>
+
+</html>
