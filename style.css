@@ -236,3 +236,22 @@ span#closeBtn{
   font-size: 2.5em;
   color: bisque;
 }
+
+.colorError {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  background-color: #FFCCCC; /* Светло-розовый фон */
+  border: 1px solid #FF0000; /* Красная рамка */
+  padding: 10px;             /* Отступы внутри блока */
+  margin-bottom: 10px;       /* Внешний отступ снизу */
+  border-radius: 4px;        /* Скругление углов */
+}
+
+/* Текст ошибки */
+.colorError p {
+  color: #FF0000;      /* Красный текст */
+  font-weight: bold;   /* Жирное начертание */
+  margin: 0;           /* Убираем внешние отступы */
+}

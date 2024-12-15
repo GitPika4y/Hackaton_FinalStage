@@ -45,16 +45,20 @@ function addNewColor(color) {
   let $parent = $(".addedColors");
   let isDuplicate = false;
 
-  $parent.children().each(function () {
+  $('.color').each(function () {
     //Проверка на наличие уже имеющегося цвета
-    if ($(this).css("background-color") === color) {
+    if ($(this).css("background-color") === color) {//Если цвет уже есть
       isDuplicate = true;
-      animate($(this).css('background-color'))
+      animate($(this).css('background-color'))//Анимация того что цвет уже есть
       return false;
     }
   });
 
-  if (isDuplicate) return;
+  if (isDuplicate){
+    $('.colorError').css('display', 'block')
+    setTimeout(()=> $('.colorError').css('display', 'none'),2000)
+    return;
+  }
 
   $(`<div class='color' 
             style = "background-color: ${color}"></div>`).appendTo($parent);
